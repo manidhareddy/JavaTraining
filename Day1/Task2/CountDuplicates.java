@@ -8,6 +8,9 @@ public class CountDuplicates {
     }
     static void countDuplicates(String sentance){
         String sentance1 = sentance;
+        sentance1 = sentance1.replaceAll("[^a-zA-Z]","");
+        //added a regular expression which help's to remove special characters from string
+        //and replace them with ""
         for(int index = 0 ; index<sentance1.length() ; index++){
             char character = sentance1.charAt(index);
             int count = 1;//initially count set to 1 for every character
@@ -23,6 +26,5 @@ public class CountDuplicates {
                 }
             }
         }
-
     }
 }
