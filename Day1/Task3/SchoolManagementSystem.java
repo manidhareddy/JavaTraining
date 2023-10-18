@@ -1,12 +1,15 @@
 package Day1.Task3;
 class Staff{
+    //base class where all common attributes and methods are declared in this class
+    //staff class is inherited by Teacher,Administration and SupportStaff class to acquire common features
+    //hierarchical level inheritance
     String name;
     int employeeID;
     int salary;
     String role;
     String responsibilities;
     public Staff(String name,int employeeID,int salary){
-        this.name = name;
+        this.name = name;//this represents current object
         this.employeeID = employeeID;
         this.salary = salary;
     }
@@ -16,6 +19,7 @@ class Staff{
     }
 }
 class Teacher extends Staff{
+    //inherit staff class to use common attributes
     String subject;
     public Teacher(String name, int employeeID, int salary,String subject) {
         super(name, employeeID, salary);
@@ -28,9 +32,10 @@ class Teacher extends Staff{
     }
 }
 class Administrators extends Staff{
+    //inherit staff class
     String department;
     public Administrators(String name,int employeeID,int salary,String department,String role,String responsibilities){
-        super(name,employeeID,salary);
+        super(name,employeeID,salary);//call base class constructor
         this.department = department;
         this.role = role;
         this.responsibilities = responsibilities;
@@ -41,7 +46,7 @@ class Administrators extends Staff{
 }
 class SupportStaff extends Staff{
     public SupportStaff(String name, int employeeID, int salary) {
-        super(name, employeeID, salary);
+        super(name, employeeID, salary);//call base class constructor
         this.role = "provide support";
         this.responsibilities = "clear doubt for students";
     }
