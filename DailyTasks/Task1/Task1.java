@@ -1,4 +1,4 @@
-package Day1.Task1;
+package DailyTasks.Task1;
 
 public class Task1 {
     public static void main(String[] args) {

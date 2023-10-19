@@ -1,4 +1,4 @@
-package Day1.Task2;
+package DailyTasks.Task2;
 class Animal {
     String walk(){
         return "I am walking";

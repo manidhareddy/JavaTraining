@@ -1,4 +1,4 @@
-package Day1.Task3;
+package DailyTasks.Task3;
 class Student {
     private String name;
     private String rollNumber;

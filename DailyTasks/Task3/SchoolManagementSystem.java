@@ -1,4 +1,4 @@
-package Day1.Task3;
+package DailyTasks.Task3;
 class Staff{
     //base class where all common attributes and methods are declared in this class
     //staff class is inherited by Teacher,Administration and SupportStaff class to acquire common features

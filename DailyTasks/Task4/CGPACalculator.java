@@ -1,4 +1,4 @@
-package Day1.Task4;
+package DailyTasks.Task4;
 class Subject {
     private String subjectName;
     private double marks;
@@ -26,7 +26,7 @@ public class CGPACalculator {
     public static void main(String[] args) {
         Subject[] subjects = new Subject[6];
         subjects[0] = new Subject("DataStructures",90);
-        subjects[1] = new Subject("Python",50);
+        subjects[1] = new Subject("Python",80);
         subjects[2] = new Subject("DBMA",60);
         subjects[3] = new Subject("Java",75);
         subjects[4] = new Subject("Computer Networks",63);
