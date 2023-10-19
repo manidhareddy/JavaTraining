@@ -5,10 +5,11 @@ abstract class Bank {
     private String name;
     private double balance;
     private String accountType;
-    public Bank(int accountNumber,String name,double balance){
+    public Bank(int accountNumber,String name,double balance,String accountType){
         this.accountNumber = accountNumber;
         this.name = name;
         this.balance = balance;
+        this.accountType = accountType;
     }
     public int getAccountNumber() {
         return accountNumber;
@@ -48,8 +49,7 @@ class SavingAccount extends Bank{
     //The class which extends abstract class must implement abstract method otherwise it should also declare as abstract class
     private final int maxWithDraw = 5000;
     public SavingAccount(int accountNumber, String name, double balance) {
-        super(accountNumber, name, balance);
-        super.setAccountType("Saving");
+        super(accountNumber, name, balance,"saving");
     }
     @Override
     public double getInterestRate(){
@@ -61,8 +61,7 @@ class CheckingAccount extends Bank{
     //concrete class
 //The class which extends abstract class must implement abstract method otherwise it should also declare as abstract class
     public CheckingAccount(int accountNumber, String name, double balance) {
-        super(accountNumber, name, balance);
-        super.setAccountType("Checking");
+        super(accountNumber, name, balance,"checking");
     }
     @Override
     public double getInterestRate() {
