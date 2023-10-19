@@ -1,4 +1,4 @@
-package DailyTasks.Task4;
+package Day1.Task4;
 class Calculator{
     public Calculator(){}
     //method overloading is a compile time polymorphism

@@ -1,4 +1,4 @@
-package DailyTasks.Task2;
+package Day1.Task2;
 import java.util.Scanner;
 public class CountDuplicates {
     public static void main(String[] args) {

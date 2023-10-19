@@ -1,4 +1,4 @@
-package DailyTasks.Task4;
+package Day1.Task4;
 class Subject {
     private String subjectName;
     private double marks;

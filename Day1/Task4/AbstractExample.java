@@ -1,4 +1,4 @@
-package DailyTasks.Task4;
+package Day1.Task4;
 abstract class Bank {
     //we can't create object of abstract class
     private int  accountNumber;

@@ -1,4 +1,4 @@
-package DailyTasks.Task3;
+package Day1.Task3;
 class Car{
     //created a car class with properties and functionality
     private String color,engineType,typeBrand,carType;
