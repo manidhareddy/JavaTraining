@@ -1,7 +1,5 @@
 package Day1.EvaluationTask1;
 import java.util.ArrayList;
-import java.util.Scanner;
-
 class Product{
     private String name;
     private double price;
@@ -39,11 +37,14 @@ class ShoppingCart{
         this.cart.add(product);
     }
     public void removeProduct(Product product){
-        if(cart.isEmpty()){
-            System.err.println("Your cart is empty");
+        if(this.cart.isEmpty()){
+            System.out.println("Your cart is empty");
+        }
+        else if(this.cart.contains(product)){
+            cart.remove(product);
         }
         else{
-            cart.remove(product);
+            System.out.println("cart doesn't contain such product");
         }
     }
     public void totalCost(){
@@ -55,7 +56,7 @@ class ShoppingCart{
         for(Product product : this.cart){
             double value =0.0;
             value = product.getPrice() * product.getQuantity();
-            System.out.println(product.getName()+":  "+product.getQuantity()+"  "+product.getPrice()+" -->"+value);
+            System.out.println(product.getName()+": "+product.getQuantity()+"  "+product.getPrice()+" -->"+value);
             total += value;
         }
         System.out.println("--------------------------------------------\n Total Cost :\t"+total);
@@ -66,13 +67,17 @@ public class OnlineShoppingSystem {
         Product prod1 = new Product("Rice Bag",1200,2);
         Product prod2 = new Product("Sprite bottle 2l",70,10);
         Product prod3 = new Product("Note Books",20,5);
+        Product prod4 = new Product("Maggi",70,2);
         ShoppingCart cart = new ShoppingCart();
         cart.addProduct(prod1);
         cart.addProduct(prod2);
         cart.addProduct(prod3);
-        cart.removeProduct(prod2);
+        cart.addProduct(prod4);
+//        cart.removeProduct(prod2);
+//        cart.removeProduct(prod1);
+//        cart.removeProduct(prod3);
+//        cart.removeProduct(prod4);
+//        cart.removeProduct(prod1);
         cart.totalCost();
-
-
     }
 }
