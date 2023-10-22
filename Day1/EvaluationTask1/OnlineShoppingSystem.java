@@ -53,31 +53,29 @@ class ShoppingCart{
             return;
         }
         double total =0.0;
+        System.out.printf("%10s %4s %8s %10s\n","Item Name","Qty","Price","Amount");
+        System.out.println("------------------------------------");
         for(Product product : this.cart){
             double value =0.0;
             value = product.getPrice() * product.getQuantity();
-            System.out.println(product.getName()+": "+product.getQuantity()+"  "+product.getPrice()+" -->"+value);
+            System.out.printf("%10s %3d %8.2f %10.2f\n",product.getName(),product.getQuantity(),product.getPrice(),value);
             total += value;
         }
-        System.out.println("--------------------------------------------\n Total Cost :\t"+total);
+        System.out.printf("--------------------------------------\n Total Cost :\t\t\t"+total);
     }
 }
 public class OnlineShoppingSystem {
     public static void main(String[] args) {
-        Product prod1 = new Product("Rice Bag",1200,2);
-        Product prod2 = new Product("Sprite bottle 2l",70,10);
+        Product prod1 = new Product("Rice Bag",1200.25,2);
+        Product prod2 = new Product("Sprite 2l",70,10);
         Product prod3 = new Product("Note Books",20,5);
         Product prod4 = new Product("Maggi",70,2);
+        Product prod5 = new Product("Chips",20,5);
         ShoppingCart cart = new ShoppingCart();
         cart.addProduct(prod1);
         cart.addProduct(prod2);
         cart.addProduct(prod3);
         cart.addProduct(prod4);
-//        cart.removeProduct(prod2);
-//        cart.removeProduct(prod1);
-//        cart.removeProduct(prod3);
-//        cart.removeProduct(prod4);
-//        cart.removeProduct(prod1);
         cart.totalCost();
     }
 }
