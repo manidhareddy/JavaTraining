@@ -74,8 +74,11 @@ public class OnlineShoppingSystem {
         ShoppingCart cart = new ShoppingCart();
         cart.addProduct(prod1);
         cart.addProduct(prod2);
-        cart.addProduct(prod3);
+        //cart.addProduct(prod3);
         cart.addProduct(prod4);
+        cart.addProduct(prod5);
+        cart.removeProduct(prod3);
+
         cart.totalCost();
     }
 }
