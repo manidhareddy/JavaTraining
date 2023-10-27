@@ -23,13 +23,17 @@ public class CommonElements{
 	}
 	public static int squareOfCommonElemets(int[] array1,int[] array2){
 		int sum = 0;
-		for(int i=0;i<array1.length;i++){
-			for(int j=0 ;j<array2.length ; j++){
-				if(array1[i] == array2[j]){
-					sum += array1[i]*array2[j];
-					break;
-				}
-			}
+		Set<Integer> set1 = new HashSet<>();
+		Set<Integer> set2 = new HashSet<>();
+		for(Integer num : array1){
+			set1.add(num);
+		}
+		for(Integer num : array2){
+			set2.add(num);
+		}
+		set1.retainAll(set2);
+		for(Integer num : set1){
+			sum+=num;
 		}
 		return sum;
 	}
