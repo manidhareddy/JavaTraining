@@ -15,6 +15,7 @@ public class ThreadInterruptionDemo{
 	public static void main(String[] args){
 		try{
 			Thread thread = new Thread(new Application());
+			thread.setName("Downloader");
 			thread.start();
 			Thread.currentThread().sleep(200);
 			thread.interrupt();
