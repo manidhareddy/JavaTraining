@@ -1,11 +1,11 @@
 import java.util.*;
 
 class Message{
-	Queue<String> messageQueue = new LinkedList<>();
+	Queue<String> messageQueue = new LinkedList<>();//pipeline for message
 	public synchronized void readingMessages(){
 		if(messageQueue.size() == 0){
 			try{
-				System.out.println("waiting for message from sender");
+				System.out.println("waiting for a message from sender :(");
 				wait();//waitting for message to add
 				
 			}
@@ -14,13 +14,14 @@ class Message{
 			}
 		}
 		String message = messageQueue.poll();
-		System.out.println(message);
+		System.out.println("Message: "+message);
+		notify();//after reading message it will notify other threads
 		
 		
 	}
 	public synchronized void writingMessage(String message){
 		messageQueue.add(message);
-		System.out.println("Added a new message");
+		System.out.println("Added a new message :)");
 		notify();//notify other threads
 	}
 	
@@ -35,7 +36,7 @@ class Sender extends Thread{
 	public void run(){
 		for(int i = 1 ; i <=5 ; i++){
 			try { this.sleep(100); } catch(InterruptedException e){}
-		message.writingMessage(" Package "+i);
+			message.writingMessage(" Package "+i);
 		}
 	}
 		
