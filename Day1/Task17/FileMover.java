@@ -11,20 +11,22 @@ public class FileMover{
 		String destinationPath = sc.nextLine();
 		File sourceFile = new File(sourcePath);
 		File destinationFile = new File(destinationPath);
+		
 		try{
 			if(!sourceFile.isFile()){
-				throw new Exception("please enter a valid file name");
+				throw new IOException("please enter a valid file name");
 			}
-			/*if(!destinationFile.isDirectory()){
-				throw new Exception("please entera a valid destination directory path");
-			}*/
+			if(!destinationFile.isDirectory()){
+				throw new IOException("please entera a valid destination directory path");
+			}
+			int index = sourcePath.lastIndexOf("/");
+			String fileName = sourcePath.substring(index);
+			destinationFile = new File(destinationFile+fileName);
 			sourceFile.renameTo(destinationFile);
 		}
-		catch(Exception e){
+		catch(IOException e){
 			System.out.println(e);
 		}
-		//catch(IOException e){
-		//	System.out.println(e);
-		//}
+		
 	}
 }
