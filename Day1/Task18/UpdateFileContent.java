@@ -7,29 +7,26 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 
 public class UpdateFileContent{
-	static String directory;
+	static File file;
 	public static void main(String[] args){
 		//input from user
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the file path: ");
 		String filePath = sc.nextLine();
 		
-		filePath = filePath.replace("\\","/");
-		int index = filePath.lastIndexOf("/");
-		directory = filePath.substring(0,index);
-		String fileName = filePath.substring(index);
+		file = new File(filePath);
 		
-		displayContent(fileName);
+		displayContent(file.getName());
 		
 		System.out.println("Enter content to the file : ");
 		String content = sc.nextLine();
 		
-		appendToTextFile(fileName , content);
-		displayContent(fileName);
+		appendToTextFile(file.getName() , content);
+		displayContent(file.getName());
 		
 	}
 	public static void appendToTextFile(String fileName , String content){
-		File file = new File(directory +"/" + fileName);
+		
 		try(FileWriter fileWriter = new FileWriter(file,true) ;
 		BufferedWriter bufferWriter = new BufferedWriter(fileWriter)){
 			bufferWriter.append("\n"+content);
@@ -40,7 +37,6 @@ public class UpdateFileContent{
 		}
 	}
 	public static void displayContent(String fileName){
-		File file = new File(directory + "/" + fileName);
 		try(FileReader fileReader = new FileReader(file);
 		BufferedReader bufferReader = new BufferedReader(fileReader)){
 			System.out.println("Content in the file: ");
