@@ -16,15 +16,9 @@ public class FileRename{
 		}
 	}
 	public static boolean renameFile(String filePath , String newFileName){
-		filePath = filePath.replace("\\","/");
-		String directory = getDirectory(filePath);
 		File file = new File(filePath);
+		String directory = file.getParent();
 		File newFile = new File(directory +"/"+ newFileName);
-		
 		return file.renameTo(newFile);
-	}
-	public static String getDirectory(String filePath){
-		int index = filePath.lastIndexOf("/");
-		return filePath.substring(0,index);
 	}
 }
