@@ -45,17 +45,20 @@ public class DataAnalyzer{
 				}
 			}
 			//average salary based on department
+			System.out.println("Average Salary by Department: ");
 			for(Map.Entry<String,Double> map : totalSalary.entrySet()){
 				System.out.println("Average salary for "+map.getKey()+" = "+map.getValue()/countDept.get(map.getKey()));
 			}
 			
 			//youngest vs oldest
-			System.out.println("\nYoungest employees list: "+youngestEmp);
-			System.out.println("oldest employees list: "+oldEmp);
+			System.out.println("\nYoungest and Oldest Employee:");
+			System.out.println("Youngest employees list: "+youngestEmp);
+			System.out.println("Oldest employees list: "+oldEmp);
 			
 			//top-earning
-			System.out.print("\nEnter N to display top N earning : ");
+			System.out.print("\nEnter N to display top N earners : ");
 			int n = sc.nextInt();
+			System.out.println("Top Earning Employees :");
 			empSalary.entrySet().stream().sorted((e1,e2) -> Double.compare(e2.getValue(),e1.getValue())).limit(n).forEach(e -> System.out.println(e.getKey()+" salary = "+e.getValue()));
 		
 		}catch(IOException e){
